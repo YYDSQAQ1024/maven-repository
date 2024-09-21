@@ -92,3 +92,7 @@ FmenuAPI api = fmenu.getAPI();
 */
 api.openFmenu(player,name);
 ```
+# 监听事件
+常用事件：
+- PlayerClickFmenuEvent
+- PlayerOpenFmenuEvent
