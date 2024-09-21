@@ -7,19 +7,21 @@
 将下方代码放入***pom.yml***来导入Fmenu\
 将`{version}`替换为插件实际版本
 ```
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>fmenu</id>
+            <url>https://github.com/YYDSQAQ1024/maven-repository/raw/main/fmenu-release</url>
+        </repository>
+    </repositories>
 ```
 ```
+    <dependencies>
         <dependency>
             <artifactId>fmenu_for_1.21</artifactId>
             <groupId>me.fmenu</groupId>
-            <version>{version}</version>
+            <version>{version}</version><!--Replace {version} with the Fmenu version-->
         </dependency>
+    </dependencies>
 ```
 
 # 将Fmenu设为依赖
@@ -47,8 +49,46 @@ dependencies:
       load: BEFORE
       required: false
 ```
-# 获取FmenuAPI
-实例代码：
+# 使用FmenuAPI
+## 获取API
+示例代码：
 ```
-未完工...
+package com.example.Example;
+
+import me.fmenu.fmenu.Fmenu;
+import me.fmenu.fmenu.api.FmenuAPI;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class Example extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        // Plugin startup logic
+        Fmenu fmenu = (Fmenu) Bukkit.getPluginManager().getPlugin("Fmenu-1.21");
+        if (fmenu != null) {
+            FmenuAPI api = fmenu.getAPI();
+            api.getVersion();//Get Fmenu version
+        }
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+    }
+}
+```
+## 打开菜单
+```
+FmenuAPI api = fmenu.getAPI();
+
+/**
+* Open a menu for a Java Edition player.
+*
+* @apiNote This method is only available to Java Edition players.
+*
+* @param player Player to view the menu.
+* @param name The menu file name,no need for a file suffix.
+*/
+api.openFmenu(player,name);
 ```
