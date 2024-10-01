@@ -22,6 +22,7 @@
             <artifactId>fmenu_for_1.21</artifactId>
             <groupId>me.fmenu</groupId>
             <version>{version}</version><!--Replace {version} with the Fmenu version-->
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 ```
