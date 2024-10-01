@@ -6,6 +6,8 @@
 
 将下方代码放入***pom.yml***来导入Fmenu\
 将`{version}`替换为插件实际版本
+> [!WARNING]
+> 插件JDK版本建议设为17
 ```
     <repositories>
         <repository>
